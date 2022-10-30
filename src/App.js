@@ -10,125 +10,125 @@ import Footer from "./components/Footer";
 const sudeste = [
   {
     estado: "ES",
-    url: "es/es-c0001-e000544-r.json",
+    url: "es/es-c0001-e000545-r.json",
   },
   {
     estado: "MG",
-    url: "mg/mg-c0001-e000544-r.json",
+    url: "mg/mg-c0001-e000545-r.json",
   },
   {
     estado: "RJ",
-    url: "rj/rj-c0001-e000544-r.json",
+    url: "rj/rj-c0001-e000545-r.json",
   },
   {
     estado: "SP",
-    url: "sp/sp-c0001-e000544-r.json",
+    url: "sp/sp-c0001-e000545-r.json",
   },
 ];
 
 const nordeste = [
   {
     estado: "AL",
-    url: "al/al-c0001-e000544-r.json",
+    url: "al/al-c0001-e000545-r.json",
   },
   {
     estado: "BA",
-    url: "ba/ba-c0001-e000544-r.json",
+    url: "ba/ba-c0001-e000545-r.json",
   },
   {
     estado: "CE",
-    url: "ce/ce-c0001-e000544-r.json",
+    url: "ce/ce-c0001-e000545-r.json",
   },
   {
     estado: "MA",
-    url: "ma/ma-c0001-e000544-r.json",
+    url: "ma/ma-c0001-e000545-r.json",
   },
   {
     estado: "PB",
-    url: "pb/pb-c0001-e000544-r.json",
+    url: "pb/pb-c0001-e000545-r.json",
   },
   {
     estado: "PE",
-    url: "pe/pe-c0001-e000544-r.json",
+    url: "pe/pe-c0001-e000545-r.json",
   },
   {
     estado: "PI",
-    url: "pi/pi-c0001-e000544-r.json",
+    url: "pi/pi-c0001-e000545-r.json",
   },
   {
     estado: "RN",
-    url: "rn/rn-c0001-e000544-r.json",
+    url: "rn/rn-c0001-e000545-r.json",
   },
   {
     estado: "SE",
-    url: "se/se-c0001-e000544-r.json",
+    url: "se/se-c0001-e000545-r.json",
   },
 ];
 
 const norte = [
   {
     estado: "AC",
-    url: "ac/ac-c0001-e000544-r.json",
+    url: "ac/ac-c0001-e000545-r.json",
   },
 
   {
     estado: "AP",
-    url: "ap/ap-c0001-e000544-r.json",
+    url: "ap/ap-c0001-e000545-r.json",
   },
   {
     estado: "AM",
-    url: "am/am-c0001-e000544-r.json",
+    url: "am/am-c0001-e000545-r.json",
   },
 
   {
     estado: "PA",
-    url: "pa/pa-c0001-e000544-r.json",
+    url: "pa/pa-c0001-e000545-r.json",
   },
   {
     estado: "RO",
-    url: "ro/ro-c0001-e000544-r.json",
+    url: "ro/ro-c0001-e000545-r.json",
   },
   {
     estado: "RR",
-    url: "rr/rr-c0001-e000544-r.json",
+    url: "rr/rr-c0001-e000545-r.json",
   },
   {
     estado: "TO",
-    url: "to/to-c0001-e000544-r.json",
+    url: "to/to-c0001-e000545-r.json",
   },
 ];
 
 const sul = [
   {
     estado: "PR",
-    url: "pr/pr-c0001-e000544-r.json",
+    url: "pr/pr-c0001-e000545-r.json",
   },
   {
     estado: "SC",
-    url: "sc/sc-c0001-e000544-r.json",
+    url: "sc/sc-c0001-e000545-r.json",
   },
   {
     estado: "RS",
-    url: "rs/rs-c0001-e000544-r.json",
+    url: "rs/rs-c0001-e000545-r.json",
   },
 ];
 
 const centroOeste = [
   {
     estado: "DF",
-    url: "df/df-c0001-e000544-r.json",
+    url: "df/df-c0001-e000545-r.json",
   },
   {
     estado: "GO",
-    url: "go/go-c0001-e000544-r.json",
+    url: "go/go-c0001-e000545-r.json",
   },
   {
     estado: "MT",
-    url: "mt/mt-c0001-e000544-r.json",
+    url: "mt/mt-c0001-e000545-r.json",
   },
   {
     estado: "MS",
-    url: "ms/ms-c0001-e000544-r.json",
+    url: "ms/ms-c0001-e000545-r.json",
   },
 ];
 
@@ -180,15 +180,15 @@ function App() {
 
   let mediaLula, mediaBolsonaro;
 
-  const br1 = "br/br-c0001-e000544-r.json";
-  const br = "br/br-c0001-e000544-r.json";
+  const br1 = "br/br-c0001-e000545-r.json";
+  const br = "br/br-c0001-e000545-r.json";
 
   // console.log(result);
   useEffect(() => {
     const interval = setInterval(() => {
       axios
         .get(
-          `https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/${br}`
+          `https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/${br}`
         )
         .then((response) => {
           setResult(response.data);
@@ -200,7 +200,7 @@ function App() {
       //   let lulaSudeste = 0;
       //   axios
       //     .get(
-      //       `https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados${estado.url}`
+      //       `https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados${estado.url}`
       //     )
       //     .then((response) => {
       //       lulaSudeste += parseFloat(response.data.cand[0].pvap);
@@ -212,7 +212,7 @@ function App() {
       // sudeste.map((estado) => {
       //   axios
       //     .get(
-      //       `https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/${estado.url}`
+      //       `https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/${estado.url}`
       //     )
       //     .then((response) => {
       //       let regiaoSudesteCopy = { ...regiaoSudeste };
@@ -247,7 +247,7 @@ function App() {
       const getInfo = async (url) => {
         try {
           const { data } = await axios.get(
-            `https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/${url}`
+            `https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/${url}`
           );
           return data;
         } catch (error) {
@@ -409,7 +409,7 @@ function App() {
       getAllNordeste();
       getAllSuL();
       getAllCentroOeste();
-    }, 20000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);
@@ -422,7 +422,7 @@ function App() {
   // setInterval(() => {
   //   axios
   //     .get(
-  //       `https://resultados.tse.jus.br/oficial/ele2022/544/dados-simplificados/${br}`
+  //       `https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/${br}`
   //     )
   //     .then((response) => {
   //       setResult(response.data);
