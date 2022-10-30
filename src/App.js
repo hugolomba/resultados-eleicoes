@@ -175,8 +175,8 @@ function App() {
   const regiaoSul = [PR, SC, RS];
   const regiaoCentroOeste = [DF, GO, MT, MS];
 
-  let lula = 20;
-  let bolsonaro = 30;
+  let lula;
+  let bolsonaro;
 
   let mediaLula, mediaBolsonaro;
 
@@ -444,11 +444,11 @@ function App() {
           </strong>
         </span>
 
-        {/* {result &&
+        {result &&
           result.cand.map((cand) => {
             if (cand.nm === "LULA") lula = cand.pvap;
             if (cand.nm === "JAIR BOLSONARO") bolsonaro = cand.pvap;
-          })} */}
+          })}
 
         <div className="candidate-container">
           {result &&

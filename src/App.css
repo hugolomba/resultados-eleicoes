@@ -76,10 +76,13 @@ body {
 
 .winning {
   /* background-color: rgb(189, 231, 189); */
-  scale: 2rem;
-  border: 6px solid rgb(189, 231, 189);
+
   border: 24px solid rgb(189, 231, 189);
+  border: 24px solid #00923f;
   border-block-style: inherit;
+  /* background-color: rgb(189, 231, 189); */
+  background-image: url("./img/winner-bg.png");
+  background-size: cover;
 }
 
 .states-container {

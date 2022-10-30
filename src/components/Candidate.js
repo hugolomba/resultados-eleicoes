@@ -7,11 +7,22 @@ const Candidate = ({ candidate, lulaWinning, bolsonaroWinning }) => {
   return (
     <Paper elevation={5}>
       <div
-        className={
+        className={`
+        ${
           lulaWinning && candidate.nm === "LULA"
-            ? " winning candidate-card"
+            ? "winning candidate-card"
             : "candidate-card"
         }
+        ${
+          bolsonaroWinning && candidate.nm === "JAIR BOLSONARO"
+            ? "winning candidate-card"
+            : "candidate-card"
+        } `}
+        // {
+        //   lulaWinning && candidate.nm === "LULA"
+        //     ? " winning candidate-card"
+        //     : "candidate-card"
+        // }
       >
         <img src={candidate.nm === "LULA" ? lula : bolsonaro} />
 

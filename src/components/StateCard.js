@@ -19,7 +19,6 @@ const StateCard = ({ estado }) => {
           ${lula > bolsonaro ? "lulawin card-estado" : "card-estado"}
           ${bolsonaro > lula ? "bolsonarowin card-estado" : "card-estado"} `}
       >
-        {console.log(lula)}
         <h3>{estado.cdabr}</h3>
         <h4>Urnas: {estado.pst}%</h4>
         {estado.cand &&
