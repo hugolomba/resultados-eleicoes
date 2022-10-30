@@ -4,7 +4,7 @@ import { Paper } from "@mui/material";
 import { useState } from "react";
 
 const StateCard = ({ estado }) => {
-  let lula, bolsonaro;
+  let lula, bolsonaro, empate;
   const [vencendor, setVencedor] = useState();
 
   return (
@@ -14,6 +14,7 @@ const StateCard = ({ estado }) => {
           if (cand.nm === "LULA") lula = cand.pvap;
           if (cand.nm === "JAIR BOLSONARO") bolsonaro = cand.pvap;
         })}
+
       <div
         className={
           lula > bolsonaro ? "lulawin card-estado" : "bolsonarowin card-estado"
