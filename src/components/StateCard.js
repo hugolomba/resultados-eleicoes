@@ -4,8 +4,7 @@ import { Paper } from "@mui/material";
 import { useState } from "react";
 
 const StateCard = ({ estado }) => {
-  let lula, bolsonaro, empate;
-  const [vencendor, setVencedor] = useState();
+  let lula, bolsonaro;
 
   return (
     <Paper elevation={4}>
@@ -16,9 +15,9 @@ const StateCard = ({ estado }) => {
         })}
 
       <div
-        className={
-          lula > bolsonaro ? "lulawin card-estado" : "bolsonarowin card-estado"
-        }
+        className={`
+          ${lula > bolsonaro ? "lulawin card-estado" : "card-estado"}
+          ${bolsonaro > lula ? "bolsonarowin card-estado" : "card-estado"} `}
       >
         {console.log(lula)}
         <h3>{estado.cdabr}</h3>
