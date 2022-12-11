@@ -183,252 +183,183 @@ function App() {
   const br1 = "br/br-c0001-e000545-r.json";
   const br = "br/br-c0001-e000545-r.json";
 
-  // console.log(result);
   useEffect(() => {
-    const interval = setInterval(() => {
-      axios
-        .get(
-          `https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/${br}`
-        )
-        .then((response) => {
-          setResult(response.data);
-          // console.log("response.data total: ", response.data);
-          // console.log(response.data);
-        });
+    axios
+      .get(
+        `https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/br/br-c0001-e000545-r.json`
+      )
+      .then((response) => {
+        setResult(response.data);
+        // console.log("response.data total: ", response.data);
+        // console.log(response.data);
+      });
 
-      // sudeste.map((estado) => {
-      //   let lulaSudeste = 0;
-      //   axios
-      //     .get(
-      //       `https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados${estado.url}`
-      //     )
-      //     .then((response) => {
-      //       lulaSudeste += parseFloat(response.data.cand[0].pvap);
-      //       console.log(response.data.cand[0].pvap);
-      //       // console.log(lulaSudeste);
-      //     });
-      // });
+    const getInfo = async (url) => {
+      try {
+        const { data } = await axios.get(
+          `https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/${url}`
+        );
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-      // sudeste.map((estado) => {
-      //   axios
-      //     .get(
-      //       `https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/${estado.url}`
-      //     )
-      //     .then((response) => {
-      //       let regiaoSudesteCopy = { ...regiaoSudeste };
-      //       // regiaoSudesteCopy[estado.estado] = response.data
-      //       // setRegiaoSudeste(regiaoSudesteCopy);
-      //       console.log(response);
-      //       console.log("COPY: ", regiaoSudesteCopy);
-      // switch (response.data.cdabr) {
-      //   case "ES":
-      //     regiaoSudesteCopy.ES = response.data;
-      //     setRegiaoSudeste(regiaoSudesteCopy);
-      //     break;
+    const getAllSudeste = async () => {
+      for (let estado of sudeste) {
+        let regiaoSudesteCopy = { ...regiaoSudeste };
+        let infoEstado = await getInfo(estado.url);
 
-      //   case "MG":
-      //     regiaoSudesteCopy.MG = response.data;
-      //     setRegiaoSudeste(regiaoSudesteCopy);
-      //     break;
+        switch (infoEstado.cdabr) {
+          case "ES":
+            setES(infoEstado);
+            break;
 
-      //   case "RJ":
-      //     regiaoSudesteCopy.RJ = response.data;
-      //     setRegiaoSudeste(regiaoSudesteCopy);
-      //     break;
+          case "MG":
+            setMG(infoEstado);
+            break;
 
-      //   case "SP":
-      //     regiaoSudesteCopy.SP = response.data;
-      //     setRegiaoSudeste(regiaoSudesteCopy);
-      //     break;
-      // }
-      //     });
-      // });
+          case "RJ":
+            setRJ(infoEstado);
+            break;
 
-      const getInfo = async (url) => {
-        try {
-          const { data } = await axios.get(
-            `https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/${url}`
-          );
-          return data;
-        } catch (error) {
-          console.log(error);
+          case "SP":
+            setSP(infoEstado);
+            break;
         }
-      };
+      }
+    };
 
-      const getAllSudeste = async () => {
-        for (let estado of sudeste) {
-          let regiaoSudesteCopy = { ...regiaoSudeste };
-          let infoEstado = await getInfo(estado.url);
+    const getAllNordeste = async () => {
+      for (let estado of nordeste) {
+        let regiaoSudesteCopy = { ...regiaoSudeste };
+        let infoEstado = await getInfo(estado.url);
 
-          switch (infoEstado.cdabr) {
-            case "ES":
-              setES(infoEstado);
-              break;
+        switch (infoEstado.cdabr) {
+          case "AL":
+            setAL(infoEstado);
+            break;
 
-            case "MG":
-              setMG(infoEstado);
-              break;
+          case "BA":
+            setBA(infoEstado);
+            break;
 
-            case "RJ":
-              setRJ(infoEstado);
-              break;
+          case "CE":
+            setCE(infoEstado);
+            break;
 
-            case "SP":
-              setSP(infoEstado);
-              break;
-          }
+          case "MA":
+            setMA(infoEstado);
+            break;
+          case "PB":
+            setPB(infoEstado);
+            break;
+
+          case "PE":
+            setPE(infoEstado);
+            break;
+
+          case "PI":
+            setPI(infoEstado);
+            break;
+
+          case "RN":
+            setRN(infoEstado);
+            break;
+          case "SE":
+            setSE(infoEstado);
+            break;
         }
-      };
+      }
+    };
 
-      const getAllNordeste = async () => {
-        for (let estado of nordeste) {
-          let regiaoSudesteCopy = { ...regiaoSudeste };
-          let infoEstado = await getInfo(estado.url);
+    const getAllNorte = async () => {
+      for (let estado of norte) {
+        let regiaoSudesteCopy = { ...regiaoSudeste };
+        let infoEstado = await getInfo(estado.url);
 
-          switch (infoEstado.cdabr) {
-            case "AL":
-              setAL(infoEstado);
-              break;
+        switch (infoEstado.cdabr) {
+          case "AC":
+            setAC(infoEstado);
+            break;
 
-            case "BA":
-              setBA(infoEstado);
-              break;
+          case "AP":
+            setAP(infoEstado);
+            break;
 
-            case "CE":
-              setCE(infoEstado);
-              break;
+          case "AM":
+            setAM(infoEstado);
+            break;
 
-            case "MA":
-              setMA(infoEstado);
-              break;
-            case "PB":
-              setPB(infoEstado);
-              break;
+          case "PA":
+            setPA(infoEstado);
+            break;
+          case "RO":
+            setRO(infoEstado);
+            break;
 
-            case "PE":
-              setPE(infoEstado);
-              break;
+          case "RR":
+            setRR(infoEstado);
+            break;
 
-            case "PI":
-              setPI(infoEstado);
-              break;
-
-            case "RN":
-              setRN(infoEstado);
-              break;
-            case "SE":
-              setSE(infoEstado);
-              break;
-          }
+          case "TO":
+            setTO(infoEstado);
+            break;
         }
-      };
+      }
+    };
 
-      const getAllNorte = async () => {
-        for (let estado of norte) {
-          let regiaoSudesteCopy = { ...regiaoSudeste };
-          let infoEstado = await getInfo(estado.url);
+    const getAllSuL = async () => {
+      for (let estado of sul) {
+        let regiaoSudesteCopy = { ...regiaoSudeste };
+        let infoEstado = await getInfo(estado.url);
 
-          switch (infoEstado.cdabr) {
-            case "AC":
-              setAC(infoEstado);
-              break;
+        switch (infoEstado.cdabr) {
+          case "PR":
+            setPR(infoEstado);
+            break;
 
-            case "AP":
-              setAP(infoEstado);
-              break;
+          case "SC":
+            setSC(infoEstado);
+            break;
 
-            case "AM":
-              setAM(infoEstado);
-              break;
-
-            case "PA":
-              setPA(infoEstado);
-              break;
-            case "RO":
-              setRO(infoEstado);
-              break;
-
-            case "RR":
-              setRR(infoEstado);
-              break;
-
-            case "TO":
-              setTO(infoEstado);
-              break;
-          }
+          case "RS":
+            setRS(infoEstado);
+            break;
         }
-      };
+      }
+    };
 
-      const getAllSuL = async () => {
-        for (let estado of sul) {
-          let regiaoSudesteCopy = { ...regiaoSudeste };
-          let infoEstado = await getInfo(estado.url);
+    const getAllCentroOeste = async () => {
+      for (let estado of centroOeste) {
+        let infoEstado = await getInfo(estado.url);
 
-          switch (infoEstado.cdabr) {
-            case "PR":
-              setPR(infoEstado);
-              break;
+        switch (infoEstado.cdabr) {
+          case "DF":
+            setDF(infoEstado);
+            break;
 
-            case "SC":
-              setSC(infoEstado);
-              break;
+          case "GO":
+            setGO(infoEstado);
+            break;
 
-            case "RS":
-              setRS(infoEstado);
-              break;
-          }
+          case "MT":
+            setMT(infoEstado);
+            break;
+
+          case "MS":
+            setMS(infoEstado);
+            break;
         }
-      };
+      }
+    };
 
-      const getAllCentroOeste = async () => {
-        for (let estado of centroOeste) {
-          let infoEstado = await getInfo(estado.url);
-
-          switch (infoEstado.cdabr) {
-            case "DF":
-              setDF(infoEstado);
-              break;
-
-            case "GO":
-              setGO(infoEstado);
-              break;
-
-            case "MT":
-              setMT(infoEstado);
-              break;
-
-            case "MS":
-              setMS(infoEstado);
-              break;
-          }
-        }
-      };
-
-      getAllNorte();
-      getAllSudeste();
-      getAllNordeste();
-      getAllSuL();
-      getAllCentroOeste();
-    }, 10000);
-
-    return () => clearInterval(interval);
+    getAllNorte();
+    getAllSudeste();
+    getAllNordeste();
+    getAllSuL();
+    getAllCentroOeste();
   }, []);
-
-  // console.log(
-  //   "stateResul:  ",
-  //   stateResult.find((element) => element)
-  // );
-
-  // setInterval(() => {
-  //   axios
-  //     .get(
-  //       `https://resultados.tse.jus.br/oficial/ele2022/545/dados-simplificados/${br}`
-  //     )
-  //     .then((response) => {
-  //       setResult(response.data);
-  //       console.log(response.data);
-  //     });
-  // }, 5000);
 
   return (
     <div className="main-container">
@@ -453,19 +384,14 @@ function App() {
         <div className="candidate-container">
           {result &&
             result.cand.map((candidate) => {
-              if (
-                candidate.nm === "LULA" ||
-                candidate.nm === "JAIR BOLSONARO"
-              ) {
-                return (
-                  <Candidate
-                    lulaWinning={lula > bolsonaro}
-                    bolsonaroWinning={bolsonaro > lula}
-                    key={candidate.n}
-                    candidate={candidate}
-                  />
-                );
-              }
+              return (
+                <Candidate
+                  lulaWinning={lula > bolsonaro}
+                  bolsonaroWinning={bolsonaro > lula}
+                  key={candidate.n}
+                  candidate={candidate}
+                />
+              );
             })}
         </div>
 
@@ -496,12 +422,6 @@ function App() {
           <div className="regiao-container">
             <h2>Centro-Oeste</h2>
             {regiaoCentroOeste.map((estado) => {
-              // estado.cand.map((cand) => {
-              //   if (cand.nm === "LULA")
-              //     Lula += parseFloat(cand.pvap.replace(",", "."));
-              //   console.log(Lula);
-              // });
-
               return <StateCard key={estado.cdabr} estado={estado} />;
             })}
           </div>

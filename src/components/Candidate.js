@@ -18,11 +18,6 @@ const Candidate = ({ candidate, lulaWinning, bolsonaroWinning }) => {
             ? "winning candidate-card"
             : "candidate-card"
         } `}
-        // {
-        //   lulaWinning && candidate.nm === "LULA"
-        //     ? " winning candidate-card"
-        //     : "candidate-card"
-        // }
       >
         <img src={candidate.nm === "LULA" ? lula : bolsonaro} />
 
